@@ -1,0 +1,160 @@
+<!DOCTYPE html >
+<html lang="es">
+
+<head>
+
+	
+<title>Gestion Productos</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/bootstrap/bootstrap.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/datatable/bootstrap.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/datatable/dataTables.bootstrap4.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/alertify/css/alertify.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/alertify/css/themes/bootstrap.css')}}">
+<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/fontawesome/css/font-awesome.css')}}">
+
+
+
+<script src="{{url_for('static', filename='librerias/jquery.min.js')}}"></script>
+<script src="{{url_for('static', filename='librerias/bootstrap/popper.min.js')}}"></script>
+<script src="{{url_for('static', filename='librerias/bootstrap/bootstrap.min.js')}}"></script>
+<script src="{{url_for('static', filename='librerias/datatable/jquery.dataTables.min.js')}}"></script>
+<script src="{{url_for('static', filename='librerias/datatable/dataTables.bootstrap4.min.js')}}"></script>
+<script src="{{url_for('static', filename='librerias/alertify/alertify.js')}}"></script>
+
+   
+ <!-- Main CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos/style.css')}}" >
+
+</head>
+
+<body>
+ <header>
+      <div class="container">
+        <div class="row">
+
+          <div class="">
+            <img src="{{url_for('static', filename='img/cafeteria_corta.jpg')}}"  >
+          </div>
+          
+          
+
+    </header>
+     
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="card text-left">
+					<div class="barra">
+            
+					<div class="card-body">
+
+                    <div class="atras">			
+                    <a href="/admin"><img src="{{url_for('static', filename='img/atras.png')}}" alt="atras-back" width="40em"></a>           
+			        </div>
+
+					<p align="right">
+                        <!--agregar nuevo cambiado a agregar nuevo producto, no es funcional verificar los nombres-->
+						<span class="btn btn-primary" data-toggle="modal" data-target="#agregarnuevosdatosmodal">
+							Agregar nuevo Producto <span class="fa fa-plus-circle" ></span>
+							</p>
+						</span>
+						<hr>
+						<div id="tablaDatatable"></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal Agregar-->
+	<div class="modal fade" id="agregarnuevosdatosmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"><b>Agrega nuevo producto</b></h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="frmnuevo" action="/crearProducto" method="POST" enctype="multipart/form-data">
+					     
+						<label>Nombre producto:</label>
+						<input type="text" class="form-control input-sm" id="nProducto" name="nProducto">
+						<label>Precio:</label>
+						<input type="text" class="form-control input-sm" id="Precio" name="Precio">
+						<label>Descripcion:</label>
+						<input type="text" class="form-control input-sm" id="Descripcion" name="Descripcion">
+						<label>Cantidad:</label>
+						<input type="text" class="form-control input-sm" id="Cantidad" name="Cantidad">
+						<p></p>					
+						<label>Imagen:</label>
+                        <input type="file" name="foto" id="foto" accept=".pdf,.jpg,.png" required/>	
+
+						
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<input form="frmnuevo" type="submit" id="btnAgregarproducto" class="btn btn-primary" value="Agregar Producto">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Modal Editar-->
+	<div class="modal fade" id="modalEditar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel"><b>Actualizar producto</b> </h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					<form id="frmnuevoU" action="/editarProducto" method="POST" enctype="multipart/form-data">
+					    <label>Id :</label>
+						<input type="text" class="form-control input-sm" id="nId" name="nId">				
+						<label>Nombre producto:</label>
+						<input type="text" class="form-control input-sm" id="nProducto" name="nProducto">
+						<label>Precio:</label>
+						<input type="text" class="form-control input-sm" id="Precio" name="Precio">						
+						<label>Cantidad:</label>
+						<input type="text" class="form-control input-sm" id="Cantidad" name="Cantidad">
+						<p></p>		
+						<label>Descripcion:</label>
+						<input type="text" class="form-control input-sm" id="Descripcion" name="Descripcion">
+						<p></p>					
+						<label>Imagen:</label>
+                        <input type="file" name="foto" accept=".pdf,.jpg,.png" />	
+				
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+					<input form="frmnuevoU" type="submit" class="btn btn-warning" id="btnActualizar" value="Actualizar">
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+</body>
+</html>
+
+
+	
+
+
+
+{% include 'tablaproductos.html' %}
+   
+</body>
+</html>

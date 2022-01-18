@@ -1,0 +1,12 @@
+[Unit]
+Description=gunicorn daemon
+After=networking.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/Sprint5
+Environment="PATH=cd"
+ExecStart=sudo sh /home/ubuntu/Sprint5/script.sh
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos/master.css')}}">
+    <script src="{{url_for('static', filename='js/validar.js')}}"></script>
+    <script src="{{url_for('static', filename='js/alertas.js')}}"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/bootstrap/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/datatable/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/datatable/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/alertify/css/alertify.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/alertify/css/themes/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='librerias/fontawesome/css/font-awesome.css')}}">
+
+    <script src="{{url_for('static', filename='librerias/jquery.min.js')}}"></script>
+    <script src="{{url_for('static', filename='librerias/bootstrap/popper.min.js')}}"></script>
+    <script src="{{url_for('static', filename='librerias/bootstrap/bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static', filename='librerias/datatable/jquery.dataTables.min.js')}}"></script>
+    <script src="{{url_for('static', filename='librerias/datatable/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{url_for('static', filename='librerias/alertify/alertify.js')}}"></script>
+        <title>Recuperar Contraseña</title>
+    </head>
+
+    {%if mensaje==1%}
+        <body onload="alertaRecuperarClave()" background="fondo caf.jpg">
+    {%elif mensaje==2%}
+        <body onload="alertaNoRecuperarClave()" background="fondo caf.jpg">
+    {%else%}
+        <body background="fondo caf.jpg">
+    {%endif%}
+    
+
+
+
+   <div class="login-box">
+      <img src="{{url_for('static', filename='img/logo.jpg')}}" class="avatar" alt="Avatar Image">
+      <h1>Recuperar Contraseña</h1>
+      
+      <form action="/recuperacion" method="POST">
+
+        <a>*Ingrese el usuario que usa para iniciar sesión y se suministrará la contraseña por correo electrónico </a>
+        <p></p>
+        <label for="usuario">Usuario</label>
+        <input type="text" id="usuario" name="user" placeholder="Ingrese el usuario">        
+        <input type="submit" value="Enviar" onclick="" >
+        <div align="center">
+        <a href="/">Volver al Login </a>
+        </div>
+       
+      </form>
+    </div>
+
+
+
+</body>
+
+</html>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

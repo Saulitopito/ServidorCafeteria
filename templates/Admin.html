@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Administrador</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos/estilos_usuarios.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos/normalize.css')}}">
+</head>
+<header class="encabezado">
+    <img src="{{url_for('static', filename='img/cafeteria_corta.jpg')}}" alt="banner_brioche" height="100%" width="100%">
+</header>
+<body>
+    <div class="barra">
+                   
+        <div class="Admin">
+            
+            <p class="usuario"><img src="{{url_for('static', filename='img/Admin.png')}}" alt="icono" width="60em"> Bienvenido {{session['user_name']}}</p>
+        
+        <div class="sesion">
+            <button>
+                <a href="/logout"><img src="{{url_for('static', filename='img/cerrar_sesion.png')}}" alt="logout" width="100%"></a>
+            </button>
+        </div>
+    </div>
+    
+    
+    <div class="titulo">
+        <font style="color:rgb(83, 16, 16);font-family:verdana" width="100%" >Gestione aquí los Cajeros</font><br/> 
+    </div>
+    <div class="imagenes">
+        <a href="/gestionUsuarios"><img src="{{url_for('static', filename='img/AdminCajero.jpg')}}" alt="AdminCajero" width="11%"></a>
+           
+    </div>   
+    <br> <br/>
+    <br> <br/>
+    
+    
+    <div class="titulo">
+        <font style="color:rgb(83, 16, 16);font-family:verdana" width="100%" >Gestione aquí los Productos</font><br/> 
+    </div>
+    <div class="imagenes">   
+
+        <a href="/gestionProductos"><img src="{{url_for('static', filename='img/AdminProducto.jfif')}}" alt="AdminProducto" width="10.6%"></a>
+
+    </div>
+    
+    
+</body>
+
+</html>

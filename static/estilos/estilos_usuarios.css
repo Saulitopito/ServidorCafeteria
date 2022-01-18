@@ -1,0 +1,112 @@
+.encabezado{
+    height: 100px;
+    width: 100%;
+    padding-bottom: 2em;
+}
+
+.barra{
+    float: right;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 6em;
+    
+}
+
+.buscador{
+    width: 55%;
+    float: left;
+    margin-right: 1em;
+    margin-left: 2em;
+}
+
+.resultado{
+    padding: 1em;
+    overflow: hidden;
+}
+
+.imagenes{
+    width: 100%;
+    overflow: hidden;
+    float: left;
+}
+
+.imagen{
+    padding: 0.5em;
+    float: left;
+}
+
+.busca{
+    width: 100%;
+    padding-left: 5%;
+}
+
+.sesion{
+    width: 6em;
+    float: right;
+}
+
+.atras{
+    float: left;
+    display: block;
+}
+
+.venta{
+    width: 35%;
+    float: right;
+    margin-right: 2em;
+
+}
+
+#subt{
+    text-align: center;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+    margin: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+#producto{
+    width: 60%;
+}
+
+#cantidad{
+    width: 10%;
+}
+
+#precio{
+    width: 20%;
+}
+
+#signo{
+    width: 1.5em;
+    height: 1.5em;
+}
+
+.cuenta{
+    padding-bottom: 1em;
+    border-bottom: black;
+    border-style: dashed;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.center{
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+
+.usuario{
+    font-family: "Trebuchet MS", "Segoe UI",Helvetica,Arial,sans-serif;
+    font-size: 2em;
+    font-weight: bold;
+    color:rgb(83, 16, 16);
+    width: 80%;
+    display: inline-flex;
+}

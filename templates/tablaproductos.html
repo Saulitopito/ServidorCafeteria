@@ -1,0 +1,66 @@
+
+<div>
+	<table class="table table-hover table-condensed table-bordered" id="iddatatable">
+		<thead style="background-color: #dc3545;color: white; font-weight: bold;">
+			<tr>
+				<td>id</td>
+				<td>Nombre</td>
+				<td>Precio</td>
+				<td>Cant Inv</td>	
+				<td>Descripcion</td>
+				<td>Imagen</td>						
+				<td>editar</td>
+				<td>Eliminar</td>
+				
+			</tr>
+		</thead>
+		<tfoot style="background-color: #ccc;color: white; font-weight: bold;">
+			<tr>							
+				<td>id</td>
+				<td>Nombre</td>
+				<td>Precio</td>
+				<td>Cant Inv</td>	
+				<td>Descripcion</td>
+				<td>Imagen</td>						
+				<td>editar</td>
+				<td>Eliminar</td>
+				
+			</tr>
+		</tfoot>
+		<tbody >
+			{% for pro in productos %}
+				<tr >
+					<td>{% print(pro[0]) %}</td>
+					<td>{% print(pro[1]) %}</td>
+					<td>{% print(pro[2]) %}</td>
+					<td>{% print(pro[3]) %}</td>
+					<td>{% print(pro[4]) %}</td>
+					<td><img src="{% print(pro[5]) %}" width="60" height="60" /></td>
+									
+                    <!-- botones antes se llamaba agregar  y fue cambiado a producto  y eliminardatos cambiado a eliminar producto
+                    tenerlo en cuenta en la implementacion-->  
+					<td style="text-align: center;">
+						<span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar" onclick=>
+							<span class="fa fa-pencil-square-o"></span>
+						</span>
+					</td>
+					<td style="text-align: center;">
+						<a href="/eliminarProducto?id={{pro[0]}}">
+						<span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar" onclick=>
+							<span class="fa fa-trash"></span>
+						</span>
+						</a>
+					</td>
+					
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#iddatatable').DataTable();
+	} );
+</script>

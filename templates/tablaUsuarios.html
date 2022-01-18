@@ -1,0 +1,67 @@
+
+<div>
+	<table class="table table-hover table-condensed table-bordered" id="iddatatable">
+		<thead style="background-color: #dc3545;color: white; font-weight: bold;">
+			<tr>
+			    <td>Id</td>
+				<td>Nombre</td>	
+				<td>Nick</td>			
+				<td>correo</td>
+				<td hidden="true">Clave</td>
+				<td>Rol</td>							
+				<td>Editar</td>
+				<td>Eliminar</td>
+				
+			</tr>
+		</thead>
+		<tfoot style="background-color: #ccc;color: white; font-weight: bold;">
+			<tr>							
+				<td>Id</td>
+				<td>Nombre</td>
+				<td>Nick</td>			
+				<td>correo</td>
+				<td hidden="true">Clave</td>
+				<td>Rol</td>							
+				<td>Editar</td>
+				<td>Eliminar</td>				
+			</tr>
+		</tfoot>
+		<tbody >
+			{% for usu in usuarios %}
+				<tr>
+					<td>{% print(usu[0]) %}</td>
+					<td>{% print(usu[1]) %}</td>
+					<td>{% print(usu[2]) %}</td>
+					<td>{% print(usu[3]) %}</td>
+					<td hidden="true">{% print(usu[4]) %}</td>
+					<td>{% print(usu[5]) %}</td>
+									
+					
+					<td style="text-align: center;">
+						
+						<span class="btn btn-warning btn-sm" data-toggle="modal" data-target="#modalEditar" onclick="">
+							<span id="{{usu[0]}}" class="fa fa-pencil-square-o"></span>
+						</span>
+						
+					</td>
+					<td style="text-align: center;">
+						<a href="/eliminarUsuario?id={{usu[0]}}">
+						<span class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modalEliminar" >
+							<span class="fa fa-trash"></span>
+						</span>
+						</a>
+					</td>
+					
+				</tr>
+			{% endfor %}
+			
+		</tbody>
+	</table>
+</div>
+
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#iddatatable').DataTable();
+	} );
+</script>

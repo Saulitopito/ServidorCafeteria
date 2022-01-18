@@ -1,0 +1,41 @@
+[0;1;32m●[0m Miapp.service - gunicorn daemon
+     Loaded: loaded (/etc/systemd/system/Miapp.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Sun 2020-12-20 13:56:40 UTC; 40s ago
+   Main PID: 1502 (sudo)
+      Tasks: 23 (limit: 1164)
+     Memory: 365.9M
+     CGroup: /system.slice/Miapp.service
+             ├─1502 /usr/bin/sudo sh /home/ubuntu/Sprint5/script.sh
+             ├─1506 sh /home/ubuntu/Sprint5/script.sh
+             ├─1507 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1509 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1510 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1511 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1512 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1513 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1514 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1515 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1516 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1517 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1518 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1519 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1520 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1521 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1522 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1523 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1524 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1525 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1526 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             ├─1527 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+             └─1528 /usr/bin/python3 /usr/bin/gunicorn --workers=20 -b 0.0.0.0:443 --certfile=micertificado.pem --keyfile=llaveprivada.pem wsgi:application
+
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1519]: [2020-12-20 13:56:41 +0000] [1519] [INFO] Booting worker with pid: 1519
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1520]: [2020-12-20 13:56:41 +0000] [1520] [INFO] Booting worker with pid: 1520
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1521]: [2020-12-20 13:56:41 +0000] [1521] [INFO] Booting worker with pid: 1521
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1522]: [2020-12-20 13:56:41 +0000] [1522] [INFO] Booting worker with pid: 1522
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1523]: [2020-12-20 13:56:41 +0000] [1523] [INFO] Booting worker with pid: 1523
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1524]: [2020-12-20 13:56:41 +0000] [1524] [INFO] Booting worker with pid: 1524
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1525]: [2020-12-20 13:56:41 +0000] [1525] [INFO] Booting worker with pid: 1525
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1526]: [2020-12-20 13:56:41 +0000] [1526] [INFO] Booting worker with pid: 1526
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1527]: [2020-12-20 13:56:41 +0000] [1527] [INFO] Booting worker with pid: 1527
+Dec 20 13:56:41 ip-172-31-81-138 sudo[1528]: [2020-12-20 13:56:41 +0000] [1528] [INFO] Booting worker with pid: 1528

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cajero - Venta</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos/estilos_usuarios.css')}}">
+    <link rel="stylesheet" href="{{url_for('static', filename='estilos/normalize.css')}}">
+</head>
+<header class="encabezado">
+    <img src="{{url_for('static', filename='img/cafeteria_corta.jpg')}}" alt="banner_brioche" height="100%" width="100%">
+</header>
+<body>
+    <div class="barra">
+        <div class="sesion">
+            <button>
+                <a href="/logout"><img src="{{url_for('static', filename='img/cerrar_sesion.png')}}" alt="logout" width="100%"></a>
+            </button>
+        </div>
+        <div class="cajero">
+            <p class="usuario"><img src="{{url_for('static', filename='img/Cajero.png')}}" alt="atras-back" width="60em"> Bienvenido {{session['user_name']}}</p>
+        </div>
+    </div>
+    <div class="buscador">
+        <div class="busca">
+            <form action="/busca" method="GET">
+                    <input type="text" id="buscador" name="buscador" placeholder="Buscar">
+                    <input type="image" src="{{url_for('static', filename='img/lupa.png')}}" alt="lupa" width=20em>
+            </form>
+        </div>
+        <div class="resultado">
+            {%for i in range(0,busqueda|length)%}
+            
+            <article class="imagen" id={{busqueda[i][0]}}><a href="/tablaVenta?id={{busqueda[i][0]}}"><img src={{busqueda[i][5]}} width="130em" height="130em"></a></article>
+            {%endfor%}
+            </form>
+        </div>
+    </div>
+    <div class="venta">
+        <div id="tablaVenta">
+            <form class="center" action="/nuevaVenta" method="GET">
+                
+                <p id="subt">Fecha: {%print(venta[1])%}</p>
+                <p id="subt">Venta #{%print(venta[0])%}</p>
+                <br>
+                
+                <input type="submit" value="Nueva venta">
+            </form>
+            <table>
+                {%for dat in datos%}
+                    <tr>
+                        <td id="producto">{%print(dat[5])%}</td>
+                        <td id="cantidad" align="center">x{%print(dat[3])%}</td>
+                        <td id="precio" align="center">{%print(dat[4])%}</td>
+                        <td id="signo"><a href="/masProducto?id={{dat[2]}}&cantidad={{dat[3]+1}}&valor={{(dat[3]+1)*(dat[6])}}"><img src="{{url_for('static', filename='img/mas.png')}}" alt="signo_más" width="15em"></a></td>
+                        <td id="signo"><a href="/menosProducto?id={{dat[2]}}&cantidad={{dat[3]-1}}&valor={{(dat[3]-1)*(dat[6])}}"><img src="{{url_for('static', filename='img/menos.png')}}" alt="signo_menos" width="15em"></a></td>
+                        <td id="signo"><a href="/eliminaProducto?id={{dat[2]}}"><img src="{{url_for('static', filename='img/papelera.png')}}" alt="borrar" width="15em"></a></td>
+                    </tr>
+                {%endfor%}
+            </table>
+
+            {%if mensaje==4%}
+            {%for i in total%}
+                <p class="center" >El valor total es ${%print(i)%}</p>
+            {%endfor%}
+            {%endif%}
+            <form class="center" action="/calculaTotal" method="GET">
+                <input type="submit" value="Facturar venta">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
